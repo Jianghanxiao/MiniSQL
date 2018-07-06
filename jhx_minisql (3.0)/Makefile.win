@@ -1,0 +1,46 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.10
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = jhx_minisql.o Interpreter/interpreter.o API/API.o Category_manager/Category_manager.o Record_manager/Record_manager.o Index_manager/Index_manager.o Buffer_manager/Buffer_manager.o
+LINKOBJ  = jhx_minisql.o Interpreter/interpreter.o API/API.o Category_manager/Category_manager.o Record_manager/Record_manager.o Index_manager/Index_manager.o Buffer_manager/Buffer_manager.o
+LIBS     = -L"C:/Users/Administrator/Desktop/软件/Dev-Cpp/MinGW64/lib" -L"C:/Users/Administrator/Desktop/软件/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Users/Administrator/Desktop/软件/Dev-Cpp/MinGW64/include" -I"C:/Users/Administrator/Desktop/软件/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/Administrator/Desktop/软件/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Users/Administrator/Desktop/软件/Dev-Cpp/MinGW64/include" -I"C:/Users/Administrator/Desktop/软件/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/Administrator/Desktop/软件/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Users/Administrator/Desktop/软件/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = jhx_minisql.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+jhx_minisql.o: jhx_minisql.cpp
+	$(CPP) -c jhx_minisql.cpp -o jhx_minisql.o $(CXXFLAGS)
+
+Interpreter/interpreter.o: Interpreter/interpreter.cpp
+	$(CPP) -c Interpreter/interpreter.cpp -o Interpreter/interpreter.o $(CXXFLAGS)
+
+API/API.o: API/API.cpp
+	$(CPP) -c API/API.cpp -o API/API.o $(CXXFLAGS)
+
+Category_manager/Category_manager.o: Category_manager/Category_manager.cpp
+	$(CPP) -c Category_manager/Category_manager.cpp -o Category_manager/Category_manager.o $(CXXFLAGS)
+
+Record_manager/Record_manager.o: Record_manager/Record_manager.cpp
+	$(CPP) -c Record_manager/Record_manager.cpp -o Record_manager/Record_manager.o $(CXXFLAGS)
+
+Index_manager/Index_manager.o: Index_manager/Index_manager.cpp
+	$(CPP) -c Index_manager/Index_manager.cpp -o Index_manager/Index_manager.o $(CXXFLAGS)
+
+Buffer_manager/Buffer_manager.o: Buffer_manager/Buffer_manager.cpp
+	$(CPP) -c Buffer_manager/Buffer_manager.cpp -o Buffer_manager/Buffer_manager.o $(CXXFLAGS)
